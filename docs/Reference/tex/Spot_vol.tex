@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{lmodern}
+\usepackage{setspace}
+\geometry{margin=1in}
+\setstretch{1.25}
+
+\title{Spot-Vol Model}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Change in iv due to the change in forward level, which creates additional sensitivity of option value \(V\) to forward \(F\), beyond delta, aka \(\partial T/\partial F\)
+
+\[
+\left(\frac{\text{skew-delta}}{\text{short-delta}}\right) \Delta_{\text{skew}} = \Delta_{BS} + \text{Vega}_{BS} \times \frac{\partial T}{\partial F}
+\]
+
+\[
+\Gamma_{\text{skew}} = \Gamma_{BS} + 2 \times \text{Vanna}_{BS} \times \frac{\partial T}{\partial F} + \text{Volga}_{BS} \times \left(\frac{\partial T}{\partial F}\right)^2
+\]
+
+Vol curve has the parameterization:
+
+\[
+\sigma(K) = \sigma_{\text{ref}}(K) + f\left(\frac{z}{K}\right)
+\]
+
+where \(K\) is the strike and \(z\) is the normalized strike, \(z = \log(K/F)/(\sigma_0\sqrt{T})\)
+
+(1) Reference vol moves linearly with spot:
+
+\[
+\sigma_{\text{ref}}(K) = \sigma_0 + \beta \frac{\partial F}{\partial K} \left(\frac{F}{F_0}\right)
+\]
+
+\[
+\beta: \text{Skew-stickiness ratio}, \quad \frac{\partial F}{\partial K} \left(\frac{F}{F_0}\right): \text{ATMF skew}
+\]
+
+(2) Slope of the vol curve is invariant to \(F\):
+
+\[
+\frac{\partial \sigma(K)}{\partial F} = \beta + \rho'(z) \frac{\partial z}{\partial K} \bigg|_{K \rightarrow F_0} + f(\text{other}) \bigg| \frac{\partial z}{\partial F}
+\]
+
+\[
+= (p-1) \frac{f'(z_0)}{\sigma_0\sqrt{T}} + \text{When } SSR \neq p=1 \text{ ATM loss } \frac{\partial z}{\partial F}
+\]
+
+\[
+= \frac{1}{\sigma_0\sqrt{T}} + \text{up-move causes vol to go down but ATM strike moves}
+\]
+
+(3) Given a term \(T\) and forward \(F=F_0\), let
+
+\[
+x = \frac{K}{F}, \quad y = \log x, \quad \text{and} \quad z = \frac{y}{\sigma_0\sqrt{T}}
+\]
+
+x:moneyness, y:log-moneyness, z:normalized strike
+
+where \(K\) is the strike and \(\sigma_0\) is the ATF (\(K=F\)) volatility.
+
+(4) Taylor series expansion of the vol curve:
+
+\[
+\sigma^2(x) = \sigma_0^2\left(1 + S_1 z + \frac{1}{2} C_1 z^2 + \ldots\right)
+\]
+
+S:Skew, C:Curvature
+
+Equivalently,
+
+\[
+\sigma(x) = \sigma_0\left(1 + S_1 z + \frac{1}{2} C_1 z^2 + \ldots\right)
+\]
+
+where \(S_2 = 2S_1\), therefore \(S_1 = S_2/2\)
+
+\(C_2 = 2C_1 + 2S_1^2\), therefore \(C_1 = C_2/2 - S_1^2/4\)
+
+(5) How does fixed strike vol move?
+
+\[
+\sigma(K) = \sigma_0 + \frac{S_1}{\sqrt{T}} \ln\left(\frac{K}{F}\right) + \ldots
+\]
+
+Then,
+
+\[
+{\sigma(K/F)} = \frac{S_1}{\sqrt{T}F} \left(F_0 - 1\right) + \frac{1}{\sqrt{T}F} \left(P_{S_1} - \frac{C_1}{\sigma_0\sqrt{T}}\right) \ln\left(\frac{K}{F}\right) + O(P\sigma\ln\frac{K}{F})
+\]
+
+\[
+\frac{\partial}{\partial F} \sigma(z|F) = S_1(P_0 - 1) + \left(\hat{\sigma}_0 P_{S_1} - C_1\right) z + O(z^2)
+\]
+
+Begins to move on forward move to find \(P_0\) empirically
+
+(6) ATF vol slope and SSR
+
+ATF vol moves along a slope that is steeper than the actual vol skew slope for the term given. The ratio of these slopes is SSR (denote by \(P_0\)) and is usually between 1 and 2. It means given a small forward change \(\frac{\partial F}{F}\), ATF vol moves by
+
+\[
+\delta \sigma_0 = P_0 \frac{S_1}{\sqrt{T}} \frac{\partial F}{F}, \quad \text{therefore } F \frac{\partial}{\partial F} \sigma_0(F) = P_0 S_1
+\]
+
+where \(\sigma_0 = \sigma_0 \sqrt{T}\). Then,
+
+\[
+\frac{\partial}{\partial F} \sigma(K|F) = \frac{S_1}{\sqrt{T}F} \left(P_0 - 1\right) + \frac{1}{\sqrt{T}F} \left(P_{S_1} - \frac{C_1}{\sigma_0\sqrt{T}}\right) \ln\left(\frac{K}{F}\right) + O(P\sigma\ln\frac{K}{F})
+\]
+
+\[
+\Rightarrow \frac{\partial}{\partial F} \sigma(z|F) = S_1(P_0 - 1) + \left(\hat{\sigma}_0 P_{S_1} - C_1\right) z + O(z^2)
+\]
+
+Begins to move on forward move to find \(P_0\) empirically
+
+\[
+\rightarrow Q(P_0 - 1)
+\]
+
+(7) Implications
+
+forward returns \(\rightarrow\) maturity
+
+\[
+\frac{\partial \sigma}{\partial F}(T) = \frac{1}{\sqrt{T}} \left(\frac{\partial \sigma}{\partial F}(T) + f(\sigma T)\right)
+\]
+
+horizontal update \(\rightarrow\) vertical update
+
+\[
+f\left(\frac{K}{F}\right) = f_{\text{theta-stn kdte}} + f_{\text{theta-ve}}
+\]
+
+Sticky moneyness \(\rightarrow\) vol-level correction
+
+(7.1) Sticky moneyness
+
+(7.2) \(\zeta\) vol-level correction
+
+(8) Diagrams
+
+(8.1) Diagram 1: Sticky moneyness
+
+\[
+\text{[Space for diagram showing curves with } M_0(F_1), M_1(F_0), \text{ and } M_0 \text{ marked on axes]}
+\]
+
+\vspace{10\baselineskip}
+
+(8.2) Diagram 2: Vol-level correction
+
+\[
+\text{[Space for diagram showing curves with } F_0, F_1, \text{ and } M_0 \text{ marked on axes]}
+\]
+
+\(M_0\): normalized strike at time \(i\) \\
+\(F_i\): forward at time \(i\)
+
+\vspace{10\baselineskip}
+
+(8.3) Diagram 3: Multiple curves
+
+\[
+\text{[Space for diagram showing multiple curves with points marked as (1), (2), and (3), with } M_0 \text{ on the x-axis]}
+\]
+
+\vspace{10\baselineskip}
+
+\[
+f_v = (p-1) \frac{S_1}{\sqrt{T}}
+\]
+
+vertical update
+
+\end{document}
