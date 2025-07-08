@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = py_vollib
+SPHINXPROJ    = quant_greeks
 SOURCEDIR     = .
 BUILDDIR      = _build
 

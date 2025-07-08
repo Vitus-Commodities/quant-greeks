@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>py_vollib.helpers.exceptions &mdash; py_vollib 1.0.2 documentation</title>
+  <title>quant_greeks.helpers.exceptions &mdash; quant_greeks 1.0.2 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="py_vollib 1.0.2 documentation" href="../../../index.html"/>
-        <link rel="up" title="py_vollib.helpers" href="../helpers.html"/> 
+    <link rel="top" title="quant_greeks 1.0.2 documentation" href="../../../index.html"/>
+        <link rel="up" title="quant_greeks.helpers" href="../helpers.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -57,7 +57,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> py_vollib
+            <a href="../../../index.html" class="icon icon-home"> quant_greeks
           
 
           
@@ -95,7 +95,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../apidoc/modules.html">   py_vollib modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apidoc/modules.html">   quant_greeks modules</a></li>
 </ul>
 
             
@@ -110,7 +110,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">py_vollib</a>
+          <a href="../../../index.html">quant_greeks</a>
         
       </nav>
 
@@ -142,9 +142,9 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-          <li><a href="../helpers.html">py_vollib.helpers</a> &raquo;</li>
+          <li><a href="../helpers.html">quant_greeks.helpers</a> &raquo;</li>
         
-      <li>py_vollib.helpers.exceptions</li>
+      <li>quant_greeks.helpers.exceptions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,15 +161,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for py_vollib.helpers.exceptions</h1><div class="highlight"><pre>
+  <h1>Source code for quant_greeks.helpers.exceptions</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">py_vollib.helpers.exceptions</span>
+<span class="sd">quant_greeks.helpers.exceptions</span>
 <span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">A library for option pricing, implied volatility, and</span>
-<span class="sd">greek calculation.  py_vollib is based on lets_be_rational,</span>
+<span class="sd">greek calculation.  quant_greeks is based on lets_be_rational,</span>
 <span class="sd">a Python wrapper for LetsBeRational by Peter Jaeckel as</span>
 <span class="sd">described below.</span>
 
@@ -209,20 +209,20 @@
 <span class="c1"># Local application/library specific imports</span>
 
 
-<div class="viewcode-block" id="InvalidArgument"><a class="viewcode-back" href="../../../apidoc/py_vollib.helpers.html#py_vollib.helpers.exceptions.InvalidArgument">[docs]</a><span class="k">class</span> <span class="nc">InvalidArgument</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="viewcode-block" id="InvalidArgument"><a class="viewcode-back" href="../../../apidoc/quant_greeks.helpers.html#quant_greeks.helpers.exceptions.InvalidArgument">[docs]</a><span class="k">class</span> <span class="nc">InvalidArgument</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="PriceIsAboveMaximum"><a class="viewcode-back" href="../../../apidoc/py_vollib.helpers.html#py_vollib.helpers.exceptions.PriceIsAboveMaximum">[docs]</a><span class="k">class</span> <span class="nc">PriceIsAboveMaximum</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="viewcode-block" id="PriceIsAboveMaximum"><a class="viewcode-back" href="../../../apidoc/quant_greeks.helpers.html#quant_greeks.helpers.exceptions.PriceIsAboveMaximum">[docs]</a><span class="k">class</span> <span class="nc">PriceIsAboveMaximum</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="PriceIsBelowIntrinsic"><a class="viewcode-back" href="../../../apidoc/py_vollib.helpers.html#py_vollib.helpers.exceptions.PriceIsBelowIntrinsic">[docs]</a><span class="k">class</span> <span class="nc">PriceIsBelowIntrinsic</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="viewcode-block" id="PriceIsBelowIntrinsic"><a class="viewcode-back" href="../../../apidoc/quant_greeks.helpers.html#quant_greeks.helpers.exceptions.PriceIsBelowIntrinsic">[docs]</a><span class="k">class</span> <span class="nc">PriceIsBelowIntrinsic</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">py_vollib.helpers.doctest_helper</span> <span class="k">import</span> <span class="n">run_doctest</span>
+    <span class="kn">from</span> <span class="nn">quant_greeks.helpers.doctest_helper</span> <span class="k">import</span> <span class="n">run_doctest</span>
     <span class="n">run_doctest</span><span class="p">()</span>
 </pre></div>
 

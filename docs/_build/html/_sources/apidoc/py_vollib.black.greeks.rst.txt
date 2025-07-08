@@ -7,7 +7,7 @@ Submodules
 py\_vollib\.black\.greeks\.analytical module
 --------------------------------------------
 
-.. automodule:: py_vollib.black.greeks.analytical
+.. automodule:: quant_greeks.black.greeks.analytical
     :members:
     :undoc-members:
     :show-inheritance:
@@ -15,7 +15,7 @@ py\_vollib\.black\.greeks\.analytical module
 py\_vollib\.black\.greeks\.numerical module
 -------------------------------------------
 
-.. automodule:: py_vollib.black.greeks.numerical
+.. automodule:: quant_greeks.black.greeks.numerical
     :members:
     :undoc-members:
     :show-inheritance:
@@ -24,7 +24,7 @@ py\_vollib\.black\.greeks\.numerical module
 Module contents
 ---------------
 
-.. automodule:: py_vollib.black.greeks
+.. automodule:: quant_greeks.black.greeks
     :members:
     :undoc-members:
     :show-inheritance:

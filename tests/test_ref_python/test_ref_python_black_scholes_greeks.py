@@ -10,16 +10,16 @@ from itertools import product
 import numpy
 
 # Local application/library specific imports
-from py_vollib.ref_python.black_scholes.greeks.analytical import delta
-from py_vollib.ref_python.black_scholes.greeks.analytical import gamma
-from py_vollib.ref_python.black_scholes.greeks.analytical import theta
-from py_vollib.ref_python.black_scholes.greeks.analytical import vega
-from py_vollib.ref_python.black_scholes.greeks.analytical import rho
-from py_vollib.ref_python.black_scholes.greeks.numerical import delta as ndelta
-from py_vollib.ref_python.black_scholes.greeks.numerical import gamma as ngamma
-from py_vollib.ref_python.black_scholes.greeks.numerical import theta as ntheta
-from py_vollib.ref_python.black_scholes.greeks.numerical import vega as nvega
-from py_vollib.ref_python.black_scholes.greeks.numerical import rho as nrho
+from quant_greeks.ref_python.black_scholes.greeks.analytical import delta
+from quant_greeks.ref_python.black_scholes.greeks.analytical import gamma
+from quant_greeks.ref_python.black_scholes.greeks.analytical import theta
+from quant_greeks.ref_python.black_scholes.greeks.analytical import vega
+from quant_greeks.ref_python.black_scholes.greeks.analytical import rho
+from quant_greeks.ref_python.black_scholes.greeks.numerical import delta as ndelta
+from quant_greeks.ref_python.black_scholes.greeks.numerical import gamma as ngamma
+from quant_greeks.ref_python.black_scholes.greeks.numerical import theta as ntheta
+from quant_greeks.ref_python.black_scholes.greeks.numerical import vega as nvega
+from quant_greeks.ref_python.black_scholes.greeks.numerical import rho as nrho
 
 
 class TestRefPythonBSGreeks(unittest.TestCase):

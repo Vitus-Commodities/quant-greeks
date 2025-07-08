@@ -6,16 +6,16 @@ Subpackages
 
 .. toctree::
 
-    py_vollib.black
-    py_vollib.black_scholes
-    py_vollib.black_scholes_merton
-    py_vollib.helpers
-    py_vollib.ref_python
+    quant_greeks.black
+    quant_greeks.black_scholes
+    quant_greeks.black_scholes_merton
+    quant_greeks.helpers
+    quant_greeks.ref_python
 
 Module contents
 ---------------
 
-.. automodule:: py_vollib
+.. automodule:: quant_greeks
     :members:
     :undoc-members:
     :show-inheritance:

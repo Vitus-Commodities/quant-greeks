@@ -8,10 +8,10 @@ import unittest
 # Related third party imports
 
 # Local application/library specific imports
-from py_vollib.black_scholes import black_scholes
-from py_vollib.black_scholes.greeks import analytical
-from py_vollib.black_scholes.greeks import numerical
-from py_vollib.black_scholes.implied_volatility import implied_volatility
+from quant_greeks.black_scholes import black_scholes
+from quant_greeks.black_scholes.greeks import analytical
+from quant_greeks.black_scholes.greeks import numerical
+from quant_greeks.black_scholes.implied_volatility import implied_volatility
 from tests.test_utils import IteratorForTestData
 
 

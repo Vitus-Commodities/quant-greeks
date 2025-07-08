@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>About py_vollib &mdash; py_vollib 1.0.2 documentation</title>
+  <title>About quant_greeks &mdash; quant_greeks 1.0.2 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="py_vollib 1.0.2 documentation" href="#"/>
-        <link rel="next" title="py_vollib" href="apidoc/modules.html"/> 
+    <link rel="top" title="quant_greeks 1.0.2 documentation" href="#"/>
+        <link rel="next" title="quant_greeks" href="apidoc/modules.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -57,7 +57,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> py_vollib
+            <a href="#" class="icon icon-home"> quant_greeks
           
 
           
@@ -95,7 +95,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="apidoc/modules.html">   py_vollib modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apidoc/modules.html">   quant_greeks modules</a></li>
 </ul>
 
             
@@ -110,7 +110,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">py_vollib</a>
+          <a href="#">quant_greeks</a>
         
       </nav>
 
@@ -140,7 +140,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>About <code class="docutils literal"><span class="pre">py_vollib</span></code></li>
+      <li>About <code class="docutils literal"><span class="pre">quant_greeks</span></code></li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -160,35 +160,35 @@
            <div itemprop="articleBody">
             
   <div class="section" id="about-py-vollib">
-<h1>About <code class="docutils literal"><span class="pre">py_vollib</span></code><a class="headerlink" href="#about-py-vollib" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal"><span class="pre">py_vollib</span></code> is a python library for calculating option prices,
+<h1>About <code class="docutils literal"><span class="pre">quant_greeks</span></code><a class="headerlink" href="#about-py-vollib" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">quant_greeks</span></code> is a python library for calculating option prices,
 implied volatility and greeks. At its core is Peter Jäckel&#8217;s
 source code for <code class="docutils literal"><span class="pre">LetsBeRational</span></code>, an extremely fast and accurate algorithm
 for obtaining Black&#8217;s implied volatility from option prices.</p>
-<p>Building on this solid foundation, <code class="docutils literal"><span class="pre">py_vollib</span></code> provides functions
+<p>Building on this solid foundation, <code class="docutils literal"><span class="pre">quant_greeks</span></code> provides functions
 to calculate option prices, implied volatility and greeks using
-Black, Black-Scholes, and Black-Scholes-Merton. <code class="docutils literal"><span class="pre">py_vollib</span></code>
+Black, Black-Scholes, and Black-Scholes-Merton. <code class="docutils literal"><span class="pre">quant_greeks</span></code>
 implements both analytical and numerical greeks for each of the three pricing formulae.</p>
 <div class="section" id="about-the-initial-release">
 <h2>About the initial release<a class="headerlink" href="#about-the-initial-release" title="Permalink to this headline">¶</a></h2>
-<p>This is the initial release of <code class="docutils literal"><span class="pre">py_vollib</span></code>.</p>
+<p>This is the initial release of <code class="docutils literal"><span class="pre">quant_greeks</span></code>.</p>
 </div>
 <div class="section" id="about-the-reference-implementation">
 <h2>About the reference implementation<a class="headerlink" href="#about-the-reference-implementation" title="Permalink to this headline">¶</a></h2>
-<p><strong>py_vollib.ref_python is a pure python version of py_vollib without any dependence on LetsBeRational. It is provided purely as a reference implementation for sanity checking. It is not recommended for industrial use.</strong></p>
+<p><strong>quant_greeks.ref_python is a pure python version of quant_greeks without any dependence on LetsBeRational. It is provided purely as a reference implementation for sanity checking. It is not recommended for industrial use.</strong></p>
 </div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">py_vollib</span></code> is Python 2.7/Python 3.6 compatible. It depends on the <code class="docutils literal"><span class="pre">py_lets_be_rational</span></code> package, pure python implementation of Peter Jäckel&#8217;s original C source code.</p>
+<p><code class="docutils literal"><span class="pre">quant_greeks</span></code> is Python 2.7/Python 3.6 compatible. It depends on the <code class="docutils literal"><span class="pre">py_lets_be_rational</span></code> package, pure python implementation of Peter Jäckel&#8217;s original C source code.</p>
 <p>To install via pip, type the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">py_vollib</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">quant_greeks</span>
 </pre></div>
 </div>
-<p>Installing <code class="docutils literal"><span class="pre">py_vollib</span></code> via pip will automatically install the necessary dependencies,
+<p>Installing <code class="docutils literal"><span class="pre">quant_greeks</span></code> via pip will automatically install the necessary dependencies,
 except for pip, and Python.</p>
-<p>Python, and pip must be installed prior to installing <code class="docutils literal"><span class="pre">py_vollib</span></code>.</p>
-<p><code class="docutils literal"><span class="pre">py_lets_be_rational</span></code> is quite stable compared to <code class="docutils literal"><span class="pre">py_vollib</span></code>, which is likely to be updated frequently.</p>
-<p>If you want to be <code class="docutils literal"><span class="pre">py_lets_be_rational</span></code> - and so <code class="docutils literal"><span class="pre">py_vollib</span></code> - faster, you need to install
+<p>Python, and pip must be installed prior to installing <code class="docutils literal"><span class="pre">quant_greeks</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">py_lets_be_rational</span></code> is quite stable compared to <code class="docutils literal"><span class="pre">quant_greeks</span></code>, which is likely to be updated frequently.</p>
+<p>If you want to be <code class="docutils literal"><span class="pre">py_lets_be_rational</span></code> - and so <code class="docutils literal"><span class="pre">quant_greeks</span></code> - faster, you need to install
 <a class="reference external" href="http://numba.pydata.org/">Numba</a>, that significantly speeds up the calculations.</p>
 </div>
 <div class="section" id="about-let-s-be-rational">
@@ -220,12 +220,12 @@ merchantability, fitness for a particular purpose, or non-infringement.
 </div>
 <div class="section" id="development">
 <h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
-<p>Fork the GitHub repository. This will make it available under your username e.g. <code class="docutils literal"><span class="pre">https://github.com/YOUR-USERNAME/py_vollib</span></code>.
+<p>Fork the GitHub repository. This will make it available under your username e.g. <code class="docutils literal"><span class="pre">https://github.com/YOUR-USERNAME/quant_greeks</span></code>.
 Clone that repo on your computer, change the code as you wish. Commit and push it, and create a pull request. That&#8217;s all.</p>
 <div class="section" id="generate-documentation">
 <h3>Generate documentation<a class="headerlink" href="#generate-documentation" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
-<span class="n">sphinx</span><span class="o">-</span><span class="n">apidoc</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="n">apidoc</span> <span class="o">../</span><span class="n">py_vollib</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">apidoc</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="n">apidoc</span> <span class="o">../</span><span class="n">quant_greeks</span>
 <span class="n">make</span> <span class="n">html</span>
 </pre></div>
 </div>
@@ -240,32 +240,32 @@ Clone that repo on your computer, change the code as you wish. Commit and push i
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="apidoc/modules.html">   py_vollib modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="apidoc/py_vollib.html">py_vollib package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="apidoc/py_vollib.black.html">py_vollib.black package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidoc/py_vollib.black.greeks.html">py_vollib.black.greeks package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apidoc/modules.html">   quant_greeks modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apidoc/quant_greeks.html">quant_greeks package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidoc/quant_greeks.black.html">quant_greeks.black package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/quant_greeks.black.greeks.html">quant_greeks.black.greeks package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apidoc/py_vollib.black_scholes.html">py_vollib.black_scholes package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidoc/py_vollib.black_scholes.greeks.html">py_vollib.black_scholes.greeks package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidoc/quant_greeks.black_scholes.html">quant_greeks.black_scholes package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/quant_greeks.black_scholes.greeks.html">quant_greeks.black_scholes.greeks package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apidoc/py_vollib.black_scholes_merton.html">py_vollib.black_scholes_merton package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidoc/py_vollib.black_scholes_merton.greeks.html">py_vollib.black_scholes_merton.greeks package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidoc/quant_greeks.black_scholes_merton.html">quant_greeks.black_scholes_merton package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/quant_greeks.black_scholes_merton.greeks.html">quant_greeks.black_scholes_merton.greeks package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="apidoc/py_vollib.helpers.html">py_vollib.helpers package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="apidoc/py_vollib.ref_python.html">py_vollib.ref_python package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="apidoc/py_vollib.ref_python.black.html">py_vollib.ref_python.black package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="apidoc/py_vollib.ref_python.black.greeks.html">py_vollib.ref_python.black.greeks package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidoc/quant_greeks.helpers.html">quant_greeks.helpers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apidoc/quant_greeks.ref_python.html">quant_greeks.ref_python package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/quant_greeks.ref_python.black.html">quant_greeks.ref_python.black package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="apidoc/quant_greeks.ref_python.black.greeks.html">quant_greeks.ref_python.black.greeks package</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="apidoc/py_vollib.ref_python.black_scholes.html">py_vollib.ref_python.black_scholes package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="apidoc/py_vollib.ref_python.black_scholes.greeks.html">py_vollib.ref_python.black_scholes.greeks package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/quant_greeks.ref_python.black_scholes.html">quant_greeks.ref_python.black_scholes package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="apidoc/quant_greeks.ref_python.black_scholes.greeks.html">quant_greeks.ref_python.black_scholes.greeks package</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="apidoc/py_vollib.ref_python.black_scholes_merton.html">py_vollib.ref_python.black_scholes_merton package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="apidoc/py_vollib.ref_python.black_scholes_merton.greeks.html">py_vollib.ref_python.black_scholes_merton.greeks package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidoc/quant_greeks.ref_python.black_scholes_merton.html">quant_greeks.ref_python.black_scholes_merton package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="apidoc/quant_greeks.ref_python.black_scholes_merton.greeks.html">quant_greeks.ref_python.black_scholes_merton.greeks package</a></li>
 </ul>
 </li>
 </ul>
@@ -296,7 +296,7 @@ Clone that repo on your computer, change the code as you wish. Commit and push i
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="apidoc/modules.html" class="btn btn-neutral float-right" title="py_vollib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="apidoc/modules.html" class="btn btn-neutral float-right" title="quant_greeks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

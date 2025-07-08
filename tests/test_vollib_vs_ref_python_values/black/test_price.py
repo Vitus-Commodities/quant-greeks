@@ -7,8 +7,8 @@ import unittest
 # Related third party imports
 
 # Local application/library specific imports
-from py_vollib.black import black as c_black
-from py_vollib.ref_python.black import black as py_black
+from quant_greeks.black import black as c_black
+from quant_greeks.ref_python.black import black as py_black
 from tests.test_utils import almost_equal
 
 

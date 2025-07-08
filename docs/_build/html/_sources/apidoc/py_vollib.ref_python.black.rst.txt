@@ -6,7 +6,7 @@ Subpackages
 
 .. toctree::
 
-    py_vollib.ref_python.black.greeks
+    quant_greeks.ref_python.black.greeks
 
 Submodules
 ----------
@@ -14,7 +14,7 @@ Submodules
 py\_vollib\.ref\_python\.black\.implied\_volatility module
 ----------------------------------------------------------
 
-.. automodule:: py_vollib.ref_python.black.implied_volatility
+.. automodule:: quant_greeks.ref_python.black.implied_volatility
     :members:
     :undoc-members:
     :show-inheritance:
@@ -23,7 +23,7 @@ py\_vollib\.ref\_python\.black\.implied\_volatility module
 Module contents
 ---------------
 
-.. automodule:: py_vollib.ref_python.black
+.. automodule:: quant_greeks.ref_python.black
     :members:
     :undoc-members:
     :show-inheritance:

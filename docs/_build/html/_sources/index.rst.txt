@@ -20,7 +20,7 @@ Contents:
 .. toctree::
    :titlesonly:
 
-      py_vollib modules <apidoc/modules.rst>
+      quant_greeks modules <apidoc/modules.rst>
 
 
 Indices and tables

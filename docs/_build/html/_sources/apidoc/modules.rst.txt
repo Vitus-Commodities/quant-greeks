@@ -1,7 +1,7 @@
-py_vollib
+quant_greeks
 =========
 
 .. toctree::
    :maxdepth: 4
 
-   py_vollib
+   quant_greeks

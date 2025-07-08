@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>py_vollib.ref_python.black.implied_volatility &mdash; py_vollib 1.0.2 documentation</title>
+  <title>quant_greeks.ref_python.black.implied_volatility &mdash; quant_greeks 1.0.2 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="index" title="Index"
               href="../../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../../search.html"/>
-    <link rel="top" title="py_vollib 1.0.2 documentation" href="../../../../index.html"/>
-        <link rel="up" title="py_vollib.ref_python.black" href="../black.html"/> 
+    <link rel="top" title="quant_greeks 1.0.2 documentation" href="../../../../index.html"/>
+        <link rel="up" title="quant_greeks.ref_python.black" href="../black.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -57,7 +57,7 @@
           
 
           
-            <a href="../../../../index.html" class="icon icon-home"> py_vollib
+            <a href="../../../../index.html" class="icon icon-home"> quant_greeks
           
 
           
@@ -95,7 +95,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../apidoc/modules.html">   py_vollib modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../apidoc/modules.html">   quant_greeks modules</a></li>
 </ul>
 
             
@@ -110,7 +110,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">py_vollib</a>
+          <a href="../../../../index.html">quant_greeks</a>
         
       </nav>
 
@@ -142,9 +142,9 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
-          <li><a href="../black.html">py_vollib.ref_python.black</a> &raquo;</li>
+          <li><a href="../black.html">quant_greeks.ref_python.black</a> &raquo;</li>
         
-      <li>py_vollib.ref_python.black.implied_volatility</li>
+      <li>quant_greeks.ref_python.black.implied_volatility</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,22 +161,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for py_vollib.ref_python.black.implied_volatility</h1><div class="highlight"><pre>
+  <h1>Source code for quant_greeks.ref_python.black.implied_volatility</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">py_vollib.ref_python.black.implied_volatility</span>
+<span class="sd">quant_greeks.ref_python.black.implied_volatility</span>
 <span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">A library for option pricing, implied volatility, and</span>
-<span class="sd">greek calculation.  py_vollib is based on lets_be_rational,</span>
+<span class="sd">greek calculation.  quant_greeks is based on lets_be_rational,</span>
 <span class="sd">a Python wrapper for LetsBeRational by Peter Jaeckel as</span>
 <span class="sd">described below.</span>
 
 <span class="sd">:copyright: © 2017 Gammon Capital LLC</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 
-<span class="sd">py_vollib.ref_python is a pure python version of py_vollib without any dependence on LetsBeRational. It is provided purely as a reference implementation for sanity checking. It is not recommended for industrial use.</span>
+<span class="sd">quant_greeks.ref_python is a pure python version of quant_greeks without any dependence on LetsBeRational. It is provided purely as a reference implementation for sanity checking. It is not recommended for industrial use.</span>
 <span class="sd">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -191,13 +191,13 @@
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">brentq</span>
 
 <span class="c1"># Local application/library specific imports</span>
-<span class="kn">from</span> <span class="nn">py_vollib.ref_python.black</span> <span class="k">import</span> <span class="n">black</span>
+<span class="kn">from</span> <span class="nn">quant_greeks.ref_python.black</span> <span class="k">import</span> <span class="n">black</span>
 
 
 <span class="c1"># -----------------------------------------------------------------------------</span>
 <span class="c1"># FUNCTIONS - IMPLIED VOLATILITY</span>
 
-<div class="viewcode-block" id="implied_volatility"><a class="viewcode-back" href="../../../../apidoc/py_vollib.ref_python.black.html#py_vollib.ref_python.black.implied_volatility.implied_volatility">[docs]</a><span class="k">def</span> <span class="nf">implied_volatility</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
+<div class="viewcode-block" id="implied_volatility"><a class="viewcode-back" href="../../../../apidoc/quant_greeks.ref_python.black.html#quant_greeks.ref_python.black.implied_volatility.implied_volatility">[docs]</a><span class="k">def</span> <span class="nf">implied_volatility</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns the Black delta of an option.</span>
 
 <span class="sd">    :param price:</span>
@@ -263,7 +263,7 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">py_vollib.helpers.doctest_helper</span> <span class="k">import</span> <span class="n">run_doctest</span>
+    <span class="kn">from</span> <span class="nn">quant_greeks.helpers.doctest_helper</span> <span class="k">import</span> <span class="n">run_doctest</span>
     <span class="n">run_doctest</span><span class="p">()</span>
 </pre></div>
 

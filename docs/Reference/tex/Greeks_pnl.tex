@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Options Trading Greeks and P\&L Formulas}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section*{The Greeks}
+
+\noindent \textbf{$\text{Delta}_{\$}$}: \$ value of underlying needed to delta hedge the position
+\begin{align*}
+\text{Delta}_{\$} &= \text{qty} \times \text{delta} \times \text{forward}
+\end{align*}
+
+\noindent \textbf{$\text{Gamma}_{\$}$}: Change in Delta$_{\$}$ for a 1\% multiplicative spot bump
+\begin{align*}
+\text{Gamma}_{\$} &= \text{qty} \times \text{gamma} \times \left( \frac{\text{forward}^2}{100} \right)
+\end{align*}
+
+\noindent \textbf{$\text{Vega}_{\$}$}: Change in \$ price for 1\% additive vol bump
+\begin{align*}
+\text{Vega}_{\$} &= \text{qty} \times \left( \frac{\text{vega}}{100} \right)
+\end{align*}
+
+\noindent \textbf{Annualized Vega$_{\$}$}: change in \$ price for a $\frac{1\%}{\sqrt{t}}$ additive vol bump, where $t$ is time to maturity in years
+\begin{align*}
+\text{Annualized Vega}_{\$} &= \text{Vega}_{\$} \times \left( \frac{1}{\sqrt{t}} \right)
+\end{align*}
+
+\noindent \textbf{Normalized Root Vega}: using 3mo 50d IV
+\begin{align*}
+\text{Vol Vega}_{\$} &= \text{Annualized Vega}_{\$} \times \left( \frac{\text{IV}(50\text{d}, 3\text{mo})}{0.16} \right)
+\end{align*}
+
+\noindent \textbf{$\text{Vanna}_{\$}$}: Change in $\text{Vega}_{\$}$ for 1\% spot bump
+\begin{align*}
+\text{Vanna}_{\$} &= \text{qty} \times \left( \frac{\text{vanna}}{100} \right) \times \left( \frac{\text{forward}}{100} \right)
+\end{align*}
+
+\noindent \textbf{$\text{Volga}_{\$}$}: Change in $\text{Vega}_{\$}$ for 1\% additive vol bump
+\begin{align*}
+\text{Volga}_{\$} &= \text{qty} \times \left( \frac{\text{volga}}{10000} \right)
+\end{align*}
+
+\noindent \textbf{$\text{Theta}_{\$}$}: Change in \$ price when moving time forward by 1-day
+\begin{align*}
+\text{Theta}_{\$} &= \text{qty} \times \text{theta} \times \left( \frac{1}{365} \right)
+\end{align*}
+
+\noindent \textbf{$\text{Rho}_{\$}$}: Change in \$ price for 1bp rate bump (doesnt apply to us)
+\begin{align*}
+\text{Rho}_{\$} &= \text{qty} \times \text{rho}
+\end{align*}
+
+\noindent \textbf{$\text{Charm}_{\$}$}: Change in $\text{Delta}_{\$}$ when moving time forward by 1-day
+\begin{align*}
+\text{Charm}_{\$} &= \text{qty} \times \text{forward} \times \text{charm} \times \left( \frac{1}{365} \right)
+\end{align*}
+
+\noindent \textbf{Adjusted Delta with vol skew effect} where $\delta \text{Vol}$ is the sensitivity of implied volatility to log-forward moves (commonly parametrized by the skew slope ratio, SSR = 1.3)
+
+\begin{align*}
+\text{Adjusted Delta}_{\$} &= \text{Delta}_{\$} + \text{Vega}_{\$} \times 100 \times \delta \text{Vol}
+\end{align*}
+
+\section*{P\&L Attribution}
+
+\textbf{Forward Move:} in \% \\
+\textbf{Vol Move:} Implied volatility move (in difference) \\
+\textbf{Rate Move:} expressed in difference
+
+\vspace{1.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{delta}}$} = $\mathrm{BoD}_{\text{delta}} \times \text{ForwardMove}$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{gamma}}$} = $\mathrm{BoD}_{\text{gamma}} \times \frac{1}{2} \times 100 \times (\text{ForwardMove})^2$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{theta}}$} = $\mathrm{BoD}_{\text{theta}} \times \frac{\text{Change in Time}}{365}$ \\
+\textit{i.e.\ $\frac{1}{365}$ for a day}
+\textit{ }
+
+\vspace{1.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{vega}}$} = $\mathrm{BoD}_{\text{vega}} \times 100 \times \text{VolMove}$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{vanna}}$} = $\mathrm{BoD}_{\text{vanna}} \times 10000 \times \text{VolMove} \times \text{ForwardMove}$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{volga}}$} = $\mathrm{BoD}_{\text{volga}} \times \frac{1}{2} \times 10000 \times (\text{VolMove})^2$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{rho}}$} = $\mathrm{BoD}_{\text{rho}} \times 10000 \times \text{RateMove}$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{delta hedged}}$} = $\mathrm{BoDPL} - \mathrm{PL}_{\text{delta}}$ \\
+\textit{where BoD PL is the PL made of BoD position}
+\textit{ }
+
+\vspace{1.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{greeks}}$} = $\mathrm{PL}_{\text{delta}} + \mathrm{PL}_{\text{gamma}} + \mathrm{PL}_{\text{theta}} + \mathrm{PL}_{\text{volga}} + \mathrm{PL}_{\text{vanna}} + \mathrm{PL}_{\text{vega}} + \mathrm{PL}_{\text{rho}}$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{unexplained}}$} = $\mathrm{BoDPL} - \mathrm{PL}_{\text{greeks}}$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{mtm}}$} = $\mathrm{PL}_{\text{delta}} + \mathrm{PL}_{\text{vega}} + \mathrm{PL}_{\text{rho}}$ \\
+\textit{ }
+
+\vspace{0.5em}
+\noindent \textbf{$\mathrm{PL}_{\text{carry}}$} = $\mathrm{PL}_{\text{gamma}} + \mathrm{PL}_{\text{theta}} + \mathrm{PL}_{\text{volga}} + \mathrm{PL}_{\text{vanna}}$ \\
+\textit{ }
+
+
+\end{document}

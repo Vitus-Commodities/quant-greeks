@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>py_vollib.black &mdash; py_vollib 1.0.2 documentation</title>
+  <title>quant_greeks.black &mdash; quant_greeks 1.0.2 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="py_vollib 1.0.2 documentation" href="../../index.html"/>
+    <link rel="top" title="quant_greeks 1.0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
   
@@ -57,7 +57,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> py_vollib
+            <a href="../../index.html" class="icon icon-home"> quant_greeks
           
 
           
@@ -95,7 +95,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../apidoc/modules.html">   py_vollib modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../apidoc/modules.html">   quant_greeks modules</a></li>
 </ul>
 
             
@@ -110,7 +110,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">py_vollib</a>
+          <a href="../../index.html">quant_greeks</a>
         
       </nav>
 
@@ -142,7 +142,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>py_vollib.black</li>
+      <li>quant_greeks.black</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,15 +159,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for py_vollib.black</h1><div class="highlight"><pre>
+  <h1>Source code for quant_greeks.black</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">py_vollib.black</span>
+<span class="sd">quant_greeks.black</span>
 <span class="sd">~~~~~~~~~~~~~~~</span>
 
 <span class="sd">A library for option pricing, implied volatility, and</span>
-<span class="sd">greek calculation.  py_vollib is based on lets_be_rational,</span>
+<span class="sd">greek calculation.  quant_greeks is based on lets_be_rational,</span>
 <span class="sd">a Python wrapper for LetsBeRational by Peter Jaeckel as</span>
 <span class="sd">described below.</span>
 
@@ -210,13 +210,13 @@
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">log</span><span class="p">,</span> <span class="n">sqrt</span>
 
 <span class="c1"># Local application/library specific imports</span>
-<span class="kn">from</span> <span class="nn">py_vollib.helpers</span> <span class="k">import</span> <span class="n">binary_flag</span>
+<span class="kn">from</span> <span class="nn">quant_greeks.helpers</span> <span class="k">import</span> <span class="n">binary_flag</span>
 
 
 <span class="c1"># -----------------------------------------------------------------------------</span>
 <span class="c1"># FUNCTIONS - OPTION PRICING</span>
 
-<div class="viewcode-block" id="black"><a class="viewcode-back" href="../../apidoc/py_vollib.black.html#py_vollib.black.black">[docs]</a><span class="k">def</span> <span class="nf">black</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+<div class="viewcode-block" id="black"><a class="viewcode-back" href="../../apidoc/quant_greeks.black.html#quant_greeks.black.black">[docs]</a><span class="k">def</span> <span class="nf">black</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
     
     <span class="sd">&quot;&quot;&quot;Calculate the (discounted) Black option price.</span>
 
@@ -246,7 +246,7 @@
 <span class="c1"># -----------------------------------------------------------------------------</span>
 <span class="c1"># FUNCTIONS - FOR REFERENCE AND TESTING</span>
 
-<div class="viewcode-block" id="undiscounted_black"><a class="viewcode-back" href="../../apidoc/py_vollib.black.html#py_vollib.black.undiscounted_black">[docs]</a><span class="k">def</span> <span class="nf">undiscounted_black</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
+<div class="viewcode-block" id="undiscounted_black"><a class="viewcode-back" href="../../apidoc/quant_greeks.black.html#quant_greeks.black.undiscounted_black">[docs]</a><span class="k">def</span> <span class="nf">undiscounted_black</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;Calculate the **undiscounted** Black option price.</span>
 
@@ -278,7 +278,7 @@
     <span class="k">return</span> <span class="n">lets_be_rational</span><span class="o">.</span><span class="n">black</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="normalised_black"><a class="viewcode-back" href="../../apidoc/py_vollib.black.html#py_vollib.black.normalised_black">[docs]</a><span class="k">def</span> <span class="nf">normalised_black</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
+<div class="viewcode-block" id="normalised_black"><a class="viewcode-back" href="../../apidoc/quant_greeks.black.html#quant_greeks.black.normalised_black">[docs]</a><span class="k">def</span> <span class="nf">normalised_black</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;Calculate the normalised Black value,</span>
 <span class="sd">    a &quot;time value put-call invariant&quot; transformation</span>
@@ -335,7 +335,7 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">py_vollib.helpers.doctest_helper</span> <span class="k">import</span> <span class="n">run_doctest</span>
+    <span class="kn">from</span> <span class="nn">quant_greeks.helpers.doctest_helper</span> <span class="k">import</span> <span class="n">run_doctest</span>
     <span class="n">run_doctest</span><span class="p">()</span>
 
 
