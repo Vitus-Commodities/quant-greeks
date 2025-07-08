@@ -132,15 +132,13 @@ def theta(flag, F, K, t, r, sigma):
 
     D1 = d1(F, K, t, r, sigma)
     D2 = d2(F, K, t, r, sigma)
-    pdf_d1 = pdf(D1)
-    N_d2 = N(D2)
 
     first_term = F * e_to_the_minus_rt * pdf(D1) * sigma / two_sqrt_t 
 
     if flag == 'c':        
         second_term = -r * F * e_to_the_minus_rt * N(D1)
         third_term = r * K * e_to_the_minus_rt * N(D2)
-        return -(first_term + second_term + third_term) / 365.
+        return -(first_term + second_term + third_term) / 365.0
     else:
         second_term = -r * F * e_to_the_minus_rt * N(-D1)
         third_term = r * K * e_to_the_minus_rt * N(-D2)
@@ -198,15 +196,7 @@ def vega(flag, F, K, t, r, sigma):
     :param sigma: volatility
     :type sigma: float
 
-    :returns:  float     
-    
-    ::
-    
-      ==========================================================
-      Note: The text book analytical formula does not multiply by .01,
-      but in practice vega is defined as the change in price
-      for each 1 percent change in IV, hence we multiply by 0.01.
-      ==========================================================
+    :returns:  float 
     
     >>> F = 49
     >>> K = 50 
@@ -222,7 +212,7 @@ def vega(flag, F, K, t, r, sigma):
     """
 
     D1 = d1(F, K, t, r, sigma)
-    return F * numpy.exp(-r*t) * pdf(D1) * numpy.sqrt(t) * 0.01
+    return F * numpy.exp(-r*t) * pdf(D1) * numpy.sqrt(t)
 
 
 def rho(flag, F, K, t, r, sigma):
@@ -241,15 +231,7 @@ def rho(flag, F, K, t, r, sigma):
     :param sigma: volatility
     :type sigma: float
 
-    :returns:  float     
-
-    ::
-
-      ==========================================================
-      The text book analytical formula does not multiply by .01,
-      but in practice rho is defined as the change in price
-      for each 1 percent change in r, hence we multiply by 0.01.
-      ==========================================================
+    :returns:  float 
       
     >>> F = 49
     >>> K = 50 
@@ -268,7 +250,152 @@ def rho(flag, F, K, t, r, sigma):
     True
     """
 
-    return -t * black(flag, F, K, t, r, sigma) * .01
+    return -t * black(flag, F, K, t, r, sigma)
+
+
+def vanna(flag, F, K, t, r, sigma):
+    """Returns the Black vanna of an option.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns: float
+
+    >>> F = 49
+    >>> K = 50 
+    >>> r = .05
+    >>> t = 0.3846
+    >>> sigma = 0.2
+    >>> flag = 'c'
+    >>> v1 = vanna(flag, F, K, t, r, sigma)
+    >>> v2 = -0.0241466
+    >>> abs(v1-v2) < .000001
+    True
+    """
+    D1 = d1(F, K, t, r, sigma)
+    D2 = d2(F, K, t, r, sigma)
+
+    return -numpy.exp(-r*t) * pdf(D1) * D2 / sigma
+
+
+def volga(flag, F, K, t, r, sigma):
+    """Returns the Black volga (vomma) of an option.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns: float
+
+    >>> F = 49
+    >>> K = 50 
+    >>> r = .05
+    >>> t = 0.3846
+    >>> sigma = 0.2
+    >>> flag = 'c'
+    >>> v1 = volga(flag, F, K, t, r, sigma)
+    >>> v2 = 0.0059159
+    >>> abs(v1-v2) < .000001
+    True
+    """
+    D1 = d1(F, K, t, r, sigma)
+    D2 = d2(F, K, t, r, sigma)
+    v = vega(flag, F, K, t, r, sigma)
+
+    return v * D1 * D2 / sigma
+
+
+def charm(flag, F, K, t, r, sigma):
+    """Returns the Black charm of an option.
+    Charm measures the instantaneous rate of change of delta over time.
+    The value is scaled to represent the daily change in delta and includes
+    the forward price scaling as per market convention.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns: float
+
+    >>> F = 49
+    >>> K = 50 
+    >>> r = .05
+    >>> t = 0.3846
+    >>> sigma = 0.2
+    >>> flag = 'c'
+    >>> v1 = charm(flag, F, K, t, r, sigma)
+    >>> v2 = -0.0002147
+    >>> abs(v1-v2) < .000001
+    True
+    """
+    D1 = d1(F, K, t, r, sigma)
+    D2 = d2(F, K, t, r, sigma)
+
+    if flag == 'c':
+        return numpy.exp(-r*t) * (r * N(D1) + pdf(D1) * D2 / (2*t))
+    else:
+        return numpy.exp(-r*t) * (-r * N(-D1) + pdf(-D1) * D2 / (2*t))
+
+
+def annualized_vega(flag, F, K, t, r, sigma):
+    """Returns the Black annualized vega of an option.
+
+    :param flag: 'c' or 'p' for call or put.
+    :type flag: str
+    :param F: underlying futures price
+    :type F: float
+    :param K: strike price
+    :type K: float
+    :param t: time to expiration in years
+    :type t: float
+    :param r: annual risk-free interest rate
+    :type r: float
+    :param sigma: volatility
+    :type sigma: float
+
+    :returns: float
+
+    >>> F = 49
+    >>> K = 50 
+    >>> r = .05
+    >>> t = 0.3846
+    >>> sigma = 0.2
+    >>> flag = 'c'
+    >>> v1 = annualized_vega(flag, F, K, t, r, sigma)
+    >>> v2 = 0.3809893
+    >>> abs(v1-v2) < .000001
+    True
+    """
+
+    return vega(flag, F, K, t, r, sigma) / numpy.sqrt(t)
 
 
 if __name__ == "__main__":
