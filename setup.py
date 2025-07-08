@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='quant_greeks',
-    version='1.0.3',
+    version='1.0.4',
     description='A library for calculating option Greeks and implied volatility using Black-Scholes-Merton model',
     url='https://github.com/Vitus-Commodities/quant-greeks',  # You should update this with your actual GitHub URL
     maintainer='dichanmb',  # Update this with your name
